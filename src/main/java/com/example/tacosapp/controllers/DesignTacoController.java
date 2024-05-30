@@ -6,10 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import lombok.extern.slf4j.Slf4j;
 import com.example.tacosapp.Ingredient;
@@ -57,6 +54,13 @@ public class DesignTacoController {
     @GetMapping
     public String showDesignForm() {
         return "designTacoPage";
+    }
+
+    @PostMapping
+    public String processTaco(@ModelAttribute TacoOrder tacoOrder, Taco taco) {
+        tacoOrder.addTaco(taco);
+        log.info("Processing tacoOrder: {}", tacoOrder);
+        return "redirect:/orders/current";
     }
 
     private Iterable<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
