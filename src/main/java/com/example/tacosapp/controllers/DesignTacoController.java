@@ -4,10 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.validation.Errors;
 import lombok.extern.slf4j.Slf4j;
 import com.example.tacosapp.Ingredient;
 import com.example.tacosapp.Ingredient.Type;
@@ -57,9 +58,13 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processTaco(@ModelAttribute TacoOrder tacoOrder, Taco taco) {
+    public String processTaco(@Valid Taco taco, Errors errors,
+                              @ModelAttribute TacoOrder tacoOrder) {
+        if (errors.hasErrors()) {
+            return "designTacoPage";
+        }
         tacoOrder.addTaco(taco);
-        log.info("Processing tacoOrder: {}", tacoOrder);
+        log.info("Processing taco: {}", taco);
         return "redirect:/orders/current";
     }
 
