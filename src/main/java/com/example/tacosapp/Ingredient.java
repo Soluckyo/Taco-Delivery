@@ -6,6 +6,8 @@ import lombok.Data;
 public class Ingredient {
     private final String id;
     private final String name;
+
+    @Enumerated
     private final Type type;
 
     public enum Type {

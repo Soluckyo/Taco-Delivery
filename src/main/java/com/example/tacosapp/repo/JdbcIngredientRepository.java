@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
+import java.util.List;
 
 @Repository
 public class JdbcIngredientRepository implements IngredientRepository {
@@ -23,19 +24,17 @@ public class JdbcIngredientRepository implements IngredientRepository {
     }
 
     @Override
-    public Optional<Ingredient> findById(Long id) {
-        List<Ingredient> results = jdbcTemplate.query("select id. name, type from Ingredient where id=?",
+    public Optional<Ingredient> findById(String id) {
+        List<Ingredient> results = jdbcTemplate.query("select id, name, type from Ingredient where id=?",
                 this::mapRowToIngredient, id);
-        return results.size() == 0 ?
-                Optional.empty() :
-                Optional.of(results.get(0));
+        return results.size() == 0 ? Optional.empty() : Optional.of(results.get(0));
     }
 
     private Ingredient mapRowToIngredient(ResultSet row, int rowNum) throws SQLException {
         return new Ingredient(
                 row.getString("id"),
                 row.getString("name"),
-                Ingredient.Type.ValueOf(row.getString("type")));
+                Ingredient.Type.valueOf(row.getString("type")));
     }
 
     @Override
