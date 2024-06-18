@@ -17,9 +17,7 @@ public class IngredientByIdConverter implements Converter<String, Ingredient> {
 
     @Autowired
     public IngredientByIdConverter(IngredientRepository ingredientRepo) {
-
         this.ingredientRepo = ingredientRepo;
-
     }
 
     @Override
