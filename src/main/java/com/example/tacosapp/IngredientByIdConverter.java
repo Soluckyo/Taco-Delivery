@@ -3,11 +3,6 @@ package com.example.tacosapp;
 import com.example.tacosapp.repo.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import com.example.tacosapp.Ingredient.Type;
 import org.springframework.stereotype.Component;
 
 @Component
