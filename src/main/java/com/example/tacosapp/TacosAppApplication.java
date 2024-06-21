@@ -1,6 +1,6 @@
 package com.example.tacosapp;
 
-import com.example.tacosapp.repo.IngredientRepository;
+import com.example.tacosapp.data.IngredientRepository;
 import com.example.tacosapp.Ingredient.Type;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;

@@ -1,10 +1,9 @@
 package com.example.tacosapp.controllers;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.example.tacosapp.repo.IngredientRepository;
+import com.example.tacosapp.data.IngredientRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
