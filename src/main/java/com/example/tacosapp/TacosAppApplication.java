@@ -19,6 +19,7 @@ public class TacosAppApplication implements WebMvcConfigurer {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/").setViewName("homePage");
+		registry.addViewController("/login");
 	}
 
 
