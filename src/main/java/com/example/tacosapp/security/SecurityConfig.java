@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import com.example.tacosapp.User;
+import com.example.tacosapp.Users;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -23,7 +23,7 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepo) {
         return username -> {
-            User user = userRepo.findByUsername(username);
+            Users user = userRepo.findByUsername(username);
             if (user != null) return user;
 
             throw new UsernameNotFoundException("User '" + username + "' not found");
