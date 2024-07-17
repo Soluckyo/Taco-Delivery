@@ -15,6 +15,7 @@ import java.util.Date;
 
 @Data
 @Entity
+@Table(name="Taco_Order")
 public class TacoOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -24,6 +25,9 @@ public class TacoOrder implements Serializable {
     private Long id;
 
     private Date placedAt;
+
+    @ManyToOne
+    private User user;
 
     @NotBlank(message = "Delivery name is required")
     private String deliveryName;
