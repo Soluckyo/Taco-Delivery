@@ -2,12 +2,11 @@ package com.example.tacosapp.controllers;
 
 import com.example.tacosapp.OrderProps;
 import com.example.tacosapp.TacoOrder;
-import com.example.tacosapp.User;
+import com.example.tacosapp.Usr;
 import com.example.tacosapp.data.OrderRepository;
 import com.example.tacosapp.data.UserRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
@@ -51,14 +50,14 @@ public class OrderController {
         log.info("Order submitted: {}", order);
         sessionStatus.setComplete();
 
-        User user = (User) authentication.getPrincipal();
+        Usr user = (Usr) authentication.getPrincipal();
         order.setUser(user);
 
         return "redirect:/";
     }
 
     @GetMapping
-    public String orderForUser(@AuthenticationPrincipal User user, Model model) {
+    public String orderForUser(@AuthenticationPrincipal Usr user, Model model) {
 
         Pageable pageable = PageRequest.of(0, props.getPageSize());
         model.addAttribute("orders", orderRepository.findByUserOrderByPlacedAtDesc(user, pageable));

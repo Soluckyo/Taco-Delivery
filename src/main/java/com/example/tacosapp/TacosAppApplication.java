@@ -6,6 +6,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -24,6 +25,7 @@ public class TacosAppApplication implements WebMvcConfigurer {
 
 
 	@Bean
+	@Profile("!prod")
 	public ApplicationRunner dataLoader(IngredientRepository repo) {
 		return args -> {
 			repo.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));

@@ -1,20 +1,46 @@
 spring:
+  profiles:
+    active:
   datasource:
-    url: jdbc:mysql://localhost/tacoapp
-    username: tacouser
-    password: tacopassword
-
-  logging:
-    level:
-      root: WARN
-      org.springframework.security: DEBUG
-
-  application:
-    name: Tacos-app
+    generate-unique-name: false
+    name: taco-app
 
   thymeleaf:
     cache: false
 
+  application:
+    name: Tacos-app
+
+logging:
+  level:
+    root: WARN
+    org.springframework.security: DEBUG
+
 taco:
   order:
     pageSize: 10
+
+---
+spring:
+  profiles: dev
+
+  datasource:
+    generate-unique-name: false
+
+logging:
+  level:
+    root: WARN
+    org.springframework.security: DEBUG
+
+---
+spring:
+  profiles: prod
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/tacoapp
+    username: tacouser
+    password: tacopassword
+
+logging:
+  level:
+    tacos: WARN
