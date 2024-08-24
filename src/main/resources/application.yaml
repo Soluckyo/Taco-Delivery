@@ -2,6 +2,9 @@ spring:
   datasource:
     generate-unique-name: false
     name: taco-app
+  data:
+    rest:
+      base-path: /data-api
 
   thymeleaf:
     cache: false
@@ -17,6 +20,9 @@ logging:
 taco:
   order:
     pageSize: 10
+
+
+
 
 #---
 #spring:
