@@ -4,11 +4,13 @@ import com.example.tacosapp.Taco;
 import com.example.tacosapp.TacoOrder;
 import com.example.tacosapp.data.OrderRepository;
 import com.example.tacosapp.data.TacoRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -91,4 +93,6 @@ public class TacoApi {
             orderRepository.deleteById(orderId);
         }catch (EmptyResultDataAccessException e){}
     }
+
+
 }
