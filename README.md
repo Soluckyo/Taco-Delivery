@@ -1,4 +1,20 @@
-<H1>A learning project based on the book "Spring in action" - Craig Walls</H1>
+## Taco Delivery App 🌮
 
-<H2>This project is made by Soluckyo and is designed to teach the spring framework</H2>
-<a>The Tacos-app is a web application for taco delivery. The application will use a spring framework, spring boot, spring data JPA, H2 database</a>
+Pet-проект для практики создания REST-сервиса по доставке тако с авторизацией и базой данных.
+
+## 🛠 Стек технологий
+
+- Java
+- Spring Boot
+- Spring Security
+- RESTful API
+- JPA / Hibernate
+- MySQL/H2
+- Thymeleaf
+
+
+## ⚙️ Возможности
+
+- CRUD товаров (Tacos)
+- Регистрация и вход пользователя
+- Создание заказов
