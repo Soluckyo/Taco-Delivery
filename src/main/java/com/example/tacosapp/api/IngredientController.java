@@ -9,7 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/api/ingredients", produces = "applicaation/json")
+@RequestMapping(path = "/api/ingredients", produces = "application/json")
 @CrossOrigin(origins = "http:/localhost:8080")
 public class IngredientController {
     private IngredientRepository ingredientRepository;
